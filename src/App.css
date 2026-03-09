@@ -1,0 +1,283 @@
+/* ── Layout ─────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 2rem 1rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 0.25rem;
+}
+
+.subtitle {
+  color: #666;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.app-main {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Add Form ───────────────────────────────────────── */
+.add-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.text-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.text-input:focus {
+  border-color: #6366f1;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.priority-select,
+.date-input {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.priority-select:focus,
+.date-input:focus {
+  border-color: #6366f1;
+}
+
+.add-btn {
+  padding: 0.6rem 1.25rem;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.add-btn:hover {
+  background: #4f46e5;
+}
+
+/* ── Filter Bar ─────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 0.25rem;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.25rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.filter-tab {
+  padding: 0.4rem 0.9rem;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.filter-tab.active {
+  background: #6366f1;
+  color: #fff;
+}
+
+.task-count {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* ── Todo List ──────────────────────────────────────── */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ── Todo Item ──────────────────────────────────────── */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  border-left: 4px solid transparent;
+  transition: opacity 0.2s;
+}
+
+.todo-item.priority-high  { border-left-color: #ef4444; }
+.todo-item.priority-medium { border-left-color: #f59e0b; }
+.todo-item.priority-low   { border-left-color: #22c55e; }
+
+.todo-item.completed {
+  opacity: 0.55;
+}
+
+/* Check button */
+.check-btn {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.check-btn:hover {
+  border-color: #6366f1;
+}
+
+.check-btn.checked {
+  background: #6366f1;
+  border-color: #6366f1;
+  color: #fff;
+}
+
+.check-btn svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* Content */
+.todo-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.todo-text {
+  display: block;
+  font-size: 0.95rem;
+  color: #1a1a2e;
+  word-break: break-word;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  flex-wrap: wrap;
+}
+
+/* Priority badge */
+.priority-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.priority-badge.priority-high   { background: #fee2e2; color: #dc2626; }
+.priority-badge.priority-medium { background: #fef3c7; color: #d97706; }
+.priority-badge.priority-low    { background: #dcfce7; color: #16a34a; }
+
+/* Due date */
+.due-date {
+  font-size: 0.78rem;
+  color: #888;
+}
+
+.due-date.overdue {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Delete button */
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.delete-btn:hover {
+  color: #ef4444;
+}
+
+/* ── Empty State ────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #aaa;
+  font-size: 0.95rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
